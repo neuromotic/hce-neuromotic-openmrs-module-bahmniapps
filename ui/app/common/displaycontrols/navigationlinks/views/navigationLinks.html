@@ -4,7 +4,7 @@
     </div>
     <ul class="navigation-link-container clearfix" ng-show="!noNavigationLinksMessage">
         <li ng-repeat="link in getLinks()">
-            <a ng-click="getUrl(link)" target="_blank" ng-if="showUrl(link)" class="title-link">
+            <a ng-click="getUrl(link)" ng-if="showUrl(link)" class="title-link">
                 {{link | titleTranslate}}
             </a>
         </li>

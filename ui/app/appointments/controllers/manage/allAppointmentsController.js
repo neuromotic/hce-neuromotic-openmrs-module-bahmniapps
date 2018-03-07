@@ -10,6 +10,10 @@ angular.module('bahmni.appointments')
             $scope.navigateTo = function (viewName) {
                 $scope.currentTab = viewName;
                 var path = 'home.manage.appointments.' + viewName;
+                // Sección 'if' añadida al original para que sólo se listen citas NO CANCELADAS
+                if (viewName == 'list') {
+                    $state.go(path, $state.params.filterParams.statusList = _.without(Bahmni.Appointments.Constants.appointmentStatusList, "Cancelled"), {reload: false});
+                }
                 $state.go(path, $state.params, {reload: false});
             };
 

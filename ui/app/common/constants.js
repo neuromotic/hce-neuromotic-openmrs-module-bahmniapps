@@ -166,6 +166,7 @@ Bahmni.Common = Bahmni.Common || {};
         dischargeEncounterTypeName: 'DISCHARGE',
         imageClassName: 'Image',
         videoClassName: 'Video',
+        eegClassName: 'EEG',
         locationCookieName: 'bahmni.user.location',
         retrospectiveEntryEncounterDateCookieName: 'bahmni.clinical.retrospectiveEncounterDate',
         JSESSIONID: "JSESSIONID",

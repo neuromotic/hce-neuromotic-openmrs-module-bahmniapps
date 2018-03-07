@@ -6,7 +6,7 @@
     <a ng-click="goBackToPreviousView()" ng-show="searchedPatient">{{::'RESET_KEY' | translate}} {{::'PATIENT_LIST_VIEW_SEARCH_HEADER' | translate}}</a>
     <patient-search on-search="displaySearchedPatient"></patient-search>
     </p>
-    <button ng-show="!hasNoAppointments()" ng-click="printPage()" class="list-view-print-btn"><i class="fa fa-print" aria-hidden="true"></i></button>
+    <!--<button ng-show="!hasNoAppointments()" ng-click="printPage()" class="list-view-print-btn"><i class="fa fa-print" aria-hidden="true"></i></button>-->
     <div class="app-list-view">
         <p class="no-app-avab-list-view" ng-show="hasNoAppointments()">{{::'NO_APPOINTMENT_LIST_VIEW' | translate}}</p>
         <table ng-show="!hasNoAppointments()">
@@ -32,10 +32,10 @@
                 <td ng-show="::enableSpecialities">{{::appointment.service.speciality.name}}</td>
                 <td class="table-mid-width">{{::appointment.service.name}}</td>
                 <td class="table-mid-width" ng-show="::enableServiceTypes">{{::appointment.serviceType && (appointment.serviceType.name + ' [' + appointment.serviceType.duration + ' min]')}}</td>
-                <td>{{appointment.status}}</td>
-                <td>{{:: isWalkIn(appointment.appointmentKind)}}</td>
+                <td ng-show="false">{{appointment.status}}</td>
+                <td ng-show="false">{{:: isWalkIn(appointment.appointmentKind)}}</td>
                 <td class="table-mid-width">{{::appointment.location.name}}</td>
-                <td class="table-mid-width">{{display(appointment.additionalInfo)}}</td>
+                <td ng-show="false" class="table-mid-width" >{{display(appointment.additionalInfo)}}</td>
                 <td>{{::appointment.comments}}</td>
             </tr>
             </tbody>
@@ -46,6 +46,7 @@
         <button show-if-privilege="{{manageAppointmentPrivilege}}" ng-click="editAppointment()">
             {{::'EDIT_APPOINTMENT' |translate}}
         </button>
+        <!--
         <button show-if-privilege="{{manageAppointmentPrivilege}}"
                 ng-show="isAllowedAction('CheckedIn')"
                 ng-disabled="selectedAppointment.status != 'CheckedIn'"
@@ -70,6 +71,7 @@
                 ng-click="confirmAction('Missed')">
                 {{::'MISSED_APPOINTMENT' | translate}}
         </button>
+        -->
         <button show-if-privilege="{{manageAppointmentPrivilege}}"
                 ng-show="isAllowedAction('Cancelled')"
                 ng-disabled="!isValidAction('Cancelled')"

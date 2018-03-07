@@ -57,7 +57,7 @@ describe("visitDocumentService", function () {
         var encounterTypeName = "test-encounter-name";
         var fileName = "test-file.csv";
         var fileType = "data";
-        var data = {error: {message: "The file type is not supported. Supported types are image/video/pdf"}};
+        var data = {error: {message: "The file type is not supported. Supported types are image/video/pdf/eeg"}};
         _$http.post.and.returnValue(specUtil.respondWithPromise(Q, {data: data}));
         visitDocumentService.saveFile(file, patientUuid, encounterTypeName, fileName, fileType).then(function (response) {
             expect(response.data.error.message).toEqual(data.error.message);

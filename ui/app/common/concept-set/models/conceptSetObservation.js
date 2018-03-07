@@ -175,6 +175,10 @@ Bahmni.ConceptSet.Observation.prototype = {
         return this.concept.conceptClass == Bahmni.Common.Constants.videoClassName;
     },
 
+    isEEG: function () {
+        return this.concept.conceptClass == Bahmni.Common.Constants.eegClassName;
+    },
+
     getDataTypeName: function () {
         return this.concept.dataType;
     },
@@ -242,6 +246,9 @@ Bahmni.ConceptSet.Observation.prototype = {
         }
         if (this.isVideo()) {
             return "video";
+        }
+        if (this.isEEG()) {
+            return "eeg";
         }
         if (this.isText()) {
             return "text";

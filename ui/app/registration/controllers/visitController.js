@@ -153,7 +153,7 @@ angular.module('bahmni.registration')
                 var confirmed = $window.confirm($translate.instant("REGISTRATION_CONFIRM_CLOSE_VISIT"));
                 if (confirmed) {
                     visitService.endVisit(vm.visitUuid).then(function () {
-                        $location.url(Bahmni.Registration.Constants.patientSearchURL);
+                        window.open("../clinical/#/default/patient/" + patientUuid + "/dashboard", "_self");
                         var messageParams = {visitUuid: vm.visitUuid, visitType: visitType};
                         auditLogService.log(patientUuid, 'CLOSE_VISIT', messageParams, 'MODULE_LABEL_REGISTRATION_KEY');
                     });

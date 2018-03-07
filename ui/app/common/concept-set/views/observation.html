@@ -266,6 +266,21 @@
                         </textarea>
                     </div>
 
+                    <div ng-switch-when="eeg" class="consultation-video" ng-disabled="observation.voided">
+                        <input id="file-browse-{{observation.uniqueId}}" class="file-browse" type="file" name="eeg"
+                               accept=".eeg" capture="camera" ng-model="observation.value" image-upload file-type="'eeg'"
+                               patient-uuid="::patient.uuid" tabindex="1">
+                        <label class="placeholder" for="file-browse-{{observation.uniqueId}}"
+                               >Subir archivo EEG</label>
+
+                        <div ng-if="observation.value" class="fl">
+                            <!--<a href="{{'/document_images/' + observation.value}}" download>Descargar {{observation.value}}</a>-->
+                            &nbsp;&nbsp;<a href="neuromoticabrirvisoreeg: https://192.168.33.10{{'/document_images/' + observation.value}}">Visualizar examen EEG</a>
+                            <br/>
+                            &nbsp;&nbsp;<a href="{{'/document_images/' + observation.value}}" download>Descargar examen EEG</a>
+                        </div>
+                    </div>
+
                     <div ng-switch-when="dropdown" class="field-value info fa fa-info-sign">
                         <concept-dropdown
                                 on-change="update"

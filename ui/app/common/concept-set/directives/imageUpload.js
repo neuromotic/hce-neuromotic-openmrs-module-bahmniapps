@@ -13,7 +13,7 @@ angular.module('bahmni.common.conceptSet')
                         spinner.forPromise(visitDocumentService.saveFile(image, scope.patientUuid, undefined, file.name, fileType).then(function (response) {
                             scope.url = response.data.url;
                             element.val(null);
-                            if (fileType !== "video") {
+                            if (fileType !== "video" && fileType !== "eeg") {
                                 cloneNew(scope.observation, scope.rootObservation);
                             }
                         }));

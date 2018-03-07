@@ -35,7 +35,7 @@ angular.module('bahmni.common.displaycontrol.forms')
                 };
 
                 var init = function () {
-                    $scope.noFormFoundMessage = "No Form found for this patient";
+                    $scope.noFormFoundMessage = "No se ha realizado ningún examen EEG.";
                     $scope.isFormFound = false;
                     return $q.all([getAllObservationTemplates(), obsFormData()]).then(function (results) {
                         $scope.observationTemplates = results[0].data.results[0].setMembers;

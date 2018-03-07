@@ -4,9 +4,14 @@
             <form name="myForm" ng-init="disableFormSubmitOnEnter()" class="visit-patient">
                 <div class="box-container">
 
-                    <legend class="registraion_legend first-registraion_legend">
+                    <legend class="registraion_legend first-registraion_legend" ng-show="::canCloseVisit">
                         <span class="mylegend"><strong>{{ ::'REGISTRATION_LABEL_SUMMARY' | translate}}</strong></span>
                     </legend>
+                    <legend class="registraion_legend first-registraion_legend" ng-hide="::canCloseVisit">
+                            <span class="mylegend"><strong>{{ ::'REGISTRATION_LABEL_SUMMARY_NO_VISIT' | translate}}</strong></span>
+                    </legend>
+                    <!--Se comenta la sección que muestra ID y Nombre del paciente, ya que esta página únicamente mostrará un mensaje de confirmación para cerrar la visita.-->
+                    <!--
                     <section>
                         <div class="form-field fl">
                             <div class="field-attribute">
@@ -25,7 +30,10 @@
                             </div>
                         </div>
                     </section>
+                    -->
+                    <!--Se comenta esta sección que muestra conceptos de visita, ya que esta página únicamente mostrará un mensaje de confirmación para cerrar la visita.-->
                     <!-- TODO: need to find a better way to render the directive again on context change or after all the calls are made.-->
+                    <!--
                     <section class="observation-section" ng-if="context">
                         <div ng-repeat="conceptSet in ::availableConceptSets" class="concept-set-group">
                             <div class="registraion_legend">
@@ -46,13 +54,17 @@
                             </div>
                         </div>
                     </section>
+                    -->
                 </div>
                 <div class="submit-btn-container">
                     <button type="button" class="cancel" tabindex="-1" ng-show="::canCloseVisit" ng-click="closeVisitIfDischarged()">{{ ::'REGISTRATION_LABEL_CLOSE_VISIT' | translate}}</button>
+                    <!--Se ocultan los botones Atrás y Guardar, ya que no son necesarios.-->
+                    <!--
                     <div class="right">
                         <button ng-click="back()" accesskey="{{ ::'REGISTRATION_BACK_ACCESS_KEY' | translate}}" ng-bind-html="::'REGISTRATION_LABEL_BACK' | translate"></button>
                         <button ng-click="submit()" class="confirm" accesskey="{{ ::'REGISTRATION_SAVE_ACCESS_KEY' | translate}}" ng-bind-html="::'REGISTRATION_LABEL_SAVE' | translate"></button>
                     </div>
+                    -->
                 </div>
             </form>
             <br>

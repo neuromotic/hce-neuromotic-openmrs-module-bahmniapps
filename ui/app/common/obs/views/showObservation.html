@@ -12,10 +12,15 @@
                        'text-only': (observation.concept.dataType ==='Text' && print),
                        'value-text-only': !(observation.concept.dataType ==='Text' && print)
                        }"
-              ng-if="::(observation.isFormElement() && !observation.isImageConcept() && !observation.isVideoConcept())">
+              ng-if="::(observation.isFormElement() && !observation.isImageConcept() && !observation.isVideoConcept() && !observation.isEEGConcept())">
             <pre class="left">{{::observation.getDisplayValue() | titleTranslate}}</pre>
             <span class="label-add-on">{{::observation.concept.units}}</span>
         </span>
+        <div ng-if="::(observation.isEEGConcept())" class="label-add-on">
+            <a href="neuromoticabrirvisoreeg: https://192.168.33.10{{'/document_images/' + observation.value}}">Visualizar examen EEG</a>
+            &nbsp;|&nbsp;
+            <a href="{{'/document_images/' + observation.value}}" download>Descargar examen EEG</a>
+        </div>
         <a  ng-if="::(observation.isImageConcept() && !observation.hasPDFAsValue() && !print)" class="img-concept">
             <img bm-observation-gallery-item observation="::observation" ng-src="{{::observation.value|thumbnail}}" alt="{{::observation.concept.name}}" />
         </a>

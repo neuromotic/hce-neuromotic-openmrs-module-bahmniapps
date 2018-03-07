@@ -9,12 +9,14 @@
                                 <button id="template-control-panel-button" class="fr" bm-pop-over-trigger>{{::'ADD_NEW_OBSERVATION'  | translate }}</button>
                             </div>
                             <div class="primary-section-grid" bm-pop-over-target>
+                                <!--
                                 <div class="form template-search-wrapper" ng-click="stopAutoClose($event)">
                                     <div class="template-search-inner fr" ng-click="stopAutoClose($event)">
                                         <input type="text" id="templateSearch" ng-model="::consultation.searchParameter"
                                            ng-change="filterTemplates()" class="search_field" placeholder="{{:: 'CONCEPT_SET_GROUP_SEARCH_LABEL' | translate}}"/>
                                     </div>
                                 </div>
+                                -->
                                 <ul class="template-icons">
                                     <li ng-repeat="template in filterTemplates()">
                                         <button id="{{getNormalized(template.label)}}" ng-disabled = "((template.isAdded || template.alwaysShow) && !template.allowAddMore)" ng-click="addTemplate(template)">

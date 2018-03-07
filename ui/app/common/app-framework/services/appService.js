@@ -2,7 +2,7 @@
 
 angular.module('bahmni.common.appFramework')
     .config(['$compileProvider', function ($compileProvider) {
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|file):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|file|neuromoticabrirvisoreeg):/);
     }])
     .service('appService', ['$http', '$q', 'sessionService', '$rootScope', 'mergeService', 'loadConfigService', 'messagingService',
         function ($http, $q, sessionService, $rootScope, mergeService, loadConfigService, messagingService) {

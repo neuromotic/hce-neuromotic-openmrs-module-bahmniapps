@@ -104,12 +104,12 @@
         <section class="form-field form-field-gender">
             <article class="form-field">
                 <div class="field-attribute">
-                    <label for="gender">{{ ::'REGISTRATION_LABEL_GENDER' | translate}} <span
+                    <label for="gender">{{ ::'REGISTRATION_LABEL_GENDER' | translate}}<span
                             class="asterick">*</span></label>
                 </div>
 
                 <div class="field-value">
-                    <select id="gender" ng-model="patient.gender" required="required" title="Select Gender"
+                    <select id="gender" ng-model="patient.gender" required="required" title="Seleccione un género"
                             ng-options="genderMap[genderCode] for genderCode in genderCodes track by genderCode" ng-change="handleUpdate('gender')">
                         <option value="">{{ ::'REGISTRATION_LABEL_SELECT_GENDER' | translate}}</option>
                     </select>
@@ -133,9 +133,10 @@
                 <ng-include src="'views/age.html'"></ng-include>
             </div>
         </section>
-        <legend class="registraion_legend">
+        <!--Label para sección de direcciones-->
+        <!--<legend class="registraion_legend">
             <span class="mylegend"> {{ ::'REGISTRATION_LABEL_ADDRESS_INFO' | translate}}</span>
-        </legend>
+        </legend>-->
 
         <section address-fields data-address-levels="::addressLevels" data-address="patient.address"
                  field-validation="::fieldValidation"
@@ -221,15 +222,15 @@
                 </div>
            </section>
         </section>
-
-        <legend class="registraion_legend" ng-if="patientConfiguration.customAttributeRows().length > 0">
+        
+        <!--Label para  sección de "Otra información"-->
+        <!--<legend class="registraion_legend" ng-if="patientConfiguration.customAttributeRows().length > 0">
             <span class="mylegend">{{ ::'REGISTRATION_LABEL_OTHER_INFO' | translate}}</span>
-        </legend>
+        </legend>-->
 
-        <section class="form-field-inline clearfix"
+        <section class="form-field clearfix"
                  ng-repeat="attributeRow in ::patientConfiguration.customAttributeRows()">
-            <article class="form-field" ng-repeat="attribute in ::attributeRow"
-                     ng-class="::{'right-form-field' : $index%2 != 0}">
+            <article class="form-field" ng-repeat="attribute in ::attributeRow">
                 <attribute-types target-model="patient" attribute="::attribute" field-validation="::fieldValidation"
                                  is-auto-complete="isAutoComplete" get-auto-complete-list="getAutoCompleteList"
                                  get-data-results="getDataResults" is-read-only="isReadOnly" handle-update="handleUpdate"></attribute-types>

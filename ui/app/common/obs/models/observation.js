@@ -28,6 +28,10 @@ Bahmni.Common.Obs.Observation = (function () {
             return this.concept.dataType === "Complex";
         },
 
+        isEEGConcept: function () {
+            return this.concept.conceptClass === "EEG";
+        },
+
         getComplexDataType: function () {
             return this.complexData ? this.complexData.dataType : null;
         },

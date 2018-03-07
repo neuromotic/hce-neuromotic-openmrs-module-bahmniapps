@@ -62,7 +62,7 @@ angular.module('bahmni.common.displaycontrol.navigationlinks')
 
             $scope.getUrl = function (link) {
                 var url = getFormattedURL(link);
-                window.open(url, link.title);
+                window.open(url, "_self");
             };
 
             $scope.showUrl = function (link) {
