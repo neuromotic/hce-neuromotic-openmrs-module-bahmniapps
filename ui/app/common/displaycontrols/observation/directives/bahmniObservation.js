@@ -4,6 +4,23 @@ angular.module('bahmni.common.displaycontrol.observation')
     .directive('bahmniObservation', ['observationsService', 'appService', '$q', 'spinner', '$rootScope', 'formHierarchyService',
         function (observationsService, appService, $q, spinner, $rootScope, formHierarchyService) {
             var controller = function ($scope) {
+                // Export Report EEG as PDF file
+                $scope.exportEEGReportPDF = function () {
+                    var textLines = [
+                        "PACIENTE:",
+                        $scope.patient.name
+                    ];
+                    /* for (var obsGroup in $scope.bahmniObservations) {
+                        for (var observation in obsGroup.value) {
+                            textLines.push(observation.value);
+                        }
+                    } */
+                    // textLines.push("VALOR OBSERVACIÓN:");
+                    textLines.push(String($scope.bahmniObservations[0].value[0].concept.name));
+                    textLines.push($scope.bahmniObservations[0].value[0].value);
+                    downloadEEGReportPDF(textLines);
+                };
+
                 $scope.print = $rootScope.isBeingPrinted || false;
 
                 $scope.showGroupDateTime = $scope.config.showGroupDateTime !== false;

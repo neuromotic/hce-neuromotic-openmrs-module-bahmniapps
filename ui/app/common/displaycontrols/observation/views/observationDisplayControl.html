@@ -23,7 +23,16 @@
                             {{::obsGroup.date | bahmniDateTime}}
                         </span>
                     </span>
-
+                    <!--NUEVO CODIGO EDWARD MOLINA 5 AGOSTO 2019-->                   
+                    <!-- <ul ng-repeat="observation in ::obsGroup.value">
+                        <p>Paciente: {{patient.name}}</p>
+                        <br />
+                        <li>
+                            <p>{{observation.value}}</p>
+                            <br />
+                        </li>
+                    </ul> -->
+                    
                     <ul bm-show="obsGroup.isOpen" ng-if="::print" class="print-observations visible-print">
                         <li ng-repeat="observation in ::obsGroup.value">
                             <ul>
@@ -40,6 +49,7 @@
                     </ul>
                 </li>
             </ul>
+            <a href="" ng-if="bahmniObservations[0].value[0].concept.name === 'Reporte EEG'" ng-click="exportEEGReportPDF()">Descargar reporte examen EEG (Archivo PDF)</a>
             <div ng-if="::noObsMessage">
                 <div class="placeholder-text" ng-if="::!message"><p translate="DISPLAY_CONTROL_ERROR_MESSAGE_KEY"
                                                                   translate-values="::{displayControl : '{{title | translate}}'}"></p>
